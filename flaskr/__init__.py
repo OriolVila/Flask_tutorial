@@ -30,3 +30,5 @@ def create_app(test_config=None):
         return 'Hello, World!'
 
     return app
+
+#. /c/ProgramData/Anaconda3/etc/profile.d/conda.sh
