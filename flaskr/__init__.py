@@ -16,7 +16,9 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.bp)
 
-    return app
+    from . import blog
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -30,6 +32,8 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    return app
 
     # a simple page that says hello
     @app.route('/hello')
